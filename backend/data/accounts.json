@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "username": "badshitland",
+    "cookies": [
+      {
+        "name": "sessionid",
+        "value": "real_session_1754056315316",
+        "domain": ".instagram.com",
+        "path": "/",
+        "httpOnly": true,
+        "secure": true
+      },
+      {
+        "name": "csrftoken",
+        "value": "csrf_1754056315316",
+        "domain": ".instagram.com"
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "createdAt": "2025-08-01T13:51:55.316Z",
+    "demoMode": false,
+    "controlledTest": true
+  }
+]

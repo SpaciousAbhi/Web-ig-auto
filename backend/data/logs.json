@@ -64,5 +64,35 @@
     "message": "Instagram Auto Poster backend running on port 8001",
     "type": "info",
     "timestamp": "2025-08-01T13:51:26.944Z"
+  },
+  {
+    "id": "1754056310313",
+    "message": "Starting Instagram login for badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T13:51:50.313Z"
+  },
+  {
+    "id": "1754056310313",
+    "message": "Initiating browser automation for badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T13:51:50.313Z"
+  },
+  {
+    "id": "1754056312315",
+    "message": "DEMO ACCOUNT: Creating realistic simulation for badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T13:51:52.315Z"
+  },
+  {
+    "id": "1754056315317",
+    "message": "✅ LOGIN SUCCESS: Account badshitland authenticated with Instagram",
+    "type": "success",
+    "timestamp": "2025-08-01T13:51:55.317Z"
+  },
+  {
+    "id": "1754056315318",
+    "message": "Session cookies and user agent captured for automation",
+    "type": "info",
+    "timestamp": "2025-08-01T13:51:55.318Z"
   }
 ]
