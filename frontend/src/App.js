@@ -407,7 +407,7 @@ function App() {
                         </div>
                       </div>
                       <div className="text-sm text-gray-400 space-y-1">
-                        <p>Source: @{task.sourceUsername}</p>
+                        <p>Sources: {Array.isArray(task.sourceUsername) ? task.sourceUsername.join(', ') : task.sourceUsername}</p>
                         <p>Destinations: {task.destinationAccounts.join(', ')}</p>
                         <p>Content: {Object.entries(task.contentTypes).filter(([_, enabled]) => enabled).map(([type]) => 
                           type.charAt(0).toUpperCase() + type.slice(1)
