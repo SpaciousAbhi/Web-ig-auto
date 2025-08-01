@@ -104,11 +104,14 @@ async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
     return [StatusCheck(**status_check) for status_check in status_checks]
 
-# Instagram Accounts Management
-@api_router.get("/accounts/list", response_model=List[InstagramAccount])
+# Instagram Accounts Management with Real Authentication
+@api_router.get("/accounts/list")
 async def get_accounts():
-    accounts = await db.instagram_accounts.find().to_list(1000)
-    return [InstagramAccount(**account) for account in accounts]
+    try:
+        accounts = await db.instagram_accounts.find().to_list(1000)
+        return [{"username": acc["username"], "createdAt": acc["createdAt"]} for acc in accounts]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @api_router.post("/accounts/add")
 async def add_account(account_data: InstagramAccountCreate):
@@ -118,15 +121,27 @@ async def add_account(account_data: InstagramAccountCreate):
         if existing:
             raise HTTPException(status_code=400, detail="Account already exists")
         
-        # Create new account (in real implementation, you'd verify credentials with Instagram)
-        account = InstagramAccount(username=account_data.username)
-        await db.instagram_accounts.insert_one(account.dict())
+        # Authenticate with Instagram
+        success = instagram_engine.add_instagram_account(account_data.username, account_data.password)
+        if not success:
+            raise HTTPException(status_code=400, detail="Failed to authenticate with Instagram")
+        
+        # Store account info (without password)
+        account_record = {
+            "username": account_data.username,
+            "createdAt": datetime.utcnow(),
+            "authenticated": True
+        }
+        await db.instagram_accounts.insert_one(account_record)
         
         # Log the action
-        log_entry = LogEntry(message=f"Added Instagram account @{account_data.username}", type="success")
+        log_entry = LogEntry(
+            message=f"Added and authenticated Instagram account @{account_data.username}", 
+            type="success"
+        )
         await db.logs.insert_one(log_entry.dict())
         
-        return {"message": "Account added successfully"}
+        return {"message": "Account authenticated and added successfully"}
     except HTTPException:
         raise
     except Exception as e:
@@ -139,7 +154,7 @@ async def remove_account(account_data: InstagramAccountRemove):
         if result.deleted_count == 0:
             raise HTTPException(status_code=404, detail="Account not found")
         
-        # Also remove from any tasks
+        # Also remove from active tasks
         await db.tasks.update_many(
             {"destinationAccounts": account_data.username},
             {"$pull": {"destinationAccounts": account_data.username}}
