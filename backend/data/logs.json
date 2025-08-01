@@ -94,5 +94,29 @@
     "message": "Session cookies and user agent captured for automation",
     "type": "info",
     "timestamp": "2025-08-01T13:51:55.318Z"
+  },
+  {
+    "id": "1754056363335",
+    "message": "Running task: Test Auto Poster Task",
+    "type": "info",
+    "timestamp": "2025-08-01T13:52:43.335Z"
+  },
+  {
+    "id": "1754056363336",
+    "message": "Scraping content from @natgeo (Posts: true, Reels: false, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T13:52:43.336Z"
+  },
+  {
+    "id": "1754056363413",
+    "message": "Failed to scrape content from @natgeo: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1181/chrome-linux/headless_shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+    "type": "error",
+    "timestamp": "2025-08-01T13:52:43.413Z"
+  },
+  {
+    "id": "1754056363413",
+    "message": "No new content found for task: Test Auto Poster Task",
+    "type": "info",
+    "timestamp": "2025-08-01T13:52:43.413Z"
   }
 ]
