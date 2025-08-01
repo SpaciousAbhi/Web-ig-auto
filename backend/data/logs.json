@@ -214,5 +214,11 @@
     "message": "Instagram Auto Poster backend running on port 8001",
     "type": "info",
     "timestamp": "2025-08-01T14:20:56.346Z"
+  },
+  {
+    "id": "1754058082314",
+    "message": "📋 Created new task \"Multi-Source Priority Automation\" with 4 source accounts: natgeo, bbcearth, discovery, animalplanet",
+    "type": "success",
+    "timestamp": "2025-08-01T14:21:22.314Z"
   }
 ]

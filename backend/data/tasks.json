@@ -15,5 +15,27 @@
     "createdAt": "2025-08-01T13:39:50.524Z",
     "lastRun": null,
     "lastPostId": null
+  },
+  {
+    "id": "1754058082313",
+    "name": "Multi-Source Priority Automation",
+    "sourceUsername": [
+      "natgeo",
+      "bbcearth",
+      "discovery",
+      "animalplanet"
+    ],
+    "destinationAccounts": [
+      "badshitland"
+    ],
+    "contentTypes": {
+      "posts": true,
+      "reels": true,
+      "stories": false
+    },
+    "enabled": true,
+    "createdAt": "2025-08-01T14:21:22.313Z",
+    "lastRun": null,
+    "lastPostIds": {}
   }
 ]
