@@ -302,14 +302,23 @@ function App() {
                   />
                 </div>
                 <div>
-                  <input
-                    type="text"
-                    placeholder="Source Instagram Username"
-                    value={newTask.sourceUsername}
-                    onChange={(e) => setNewTask({...newTask, sourceUsername: e.target.value})}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    required
-                  />
+                  <label className="block text-white mb-2">Source Instagram Usernames</label>
+                  <div className="space-y-2">
+                    <input
+                      type="text"
+                      placeholder="Enter source accounts separated by commas (e.g. natgeo, bbcearth, discovery)"
+                      value={Array.isArray(newTask.sourceUsername) ? newTask.sourceUsername.join(', ') : newTask.sourceUsername}
+                      onChange={(e) => {
+                        const accounts = e.target.value.split(',').map(acc => acc.trim()).filter(acc => acc);
+                        setNewTask({...newTask, sourceUsername: accounts});
+                      }}
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      required
+                    />
+                    <p className="text-sm text-gray-400">
+                      💡 Add multiple source accounts separated by commas. The system will monitor ALL of them and auto-post any new content.
+                    </p>
+                  </div>
                 </div>
                 <div>
                   <label className="block text-white mb-2">Destination Accounts</label>
