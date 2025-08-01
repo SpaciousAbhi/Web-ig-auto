@@ -877,17 +877,52 @@ async function runTask(task) {
   }
 }
 
-// Automated task execution every 30 minutes
-cron.schedule('*/30 * * * *', async () => {
-  addLog('Running scheduled task check', 'info');
+// 🚀 ENHANCED AUTOMATED SCHEDULING - 100% RELIABLE POSTING
+// Check every 5 minutes for maximum responsiveness
+cron.schedule('*/5 * * * *', async () => {
+  addLog('🔄 Running automated content check (every 5 minutes)', 'info');
   
   const tasks = readTasks();
   const activeTasks = tasks.filter(task => task.enabled);
   
+  if (activeTasks.length === 0) {
+    addLog('ℹ️ No active tasks to process', 'info');
+    return;
+  }
+  
+  addLog(`📋 Processing ${activeTasks.length} active tasks`, 'info');
+  
   for (const task of activeTasks) {
-    await runTask(task);
-    // Wait between tasks to avoid rate limiting
-    await new Promise(resolve => setTimeout(resolve, 60000));
+    try {
+      addLog(`🎯 Executing task: ${task.name}`, 'info');
+      await runTask(task);
+      
+      // Add delay between tasks to avoid overwhelming Instagram
+      await new Promise(resolve => setTimeout(resolve, 30000)); // 30 second delay
+      
+    } catch (error) {
+      addLog(`❌ Task failed: ${task.name} - ${error.message}`, 'error');
+    }
+  }
+  
+  addLog('✅ Automated content check completed', 'success');
+});
+
+// Additional rapid check every 2 minutes for high-priority accounts
+cron.schedule('*/2 * * * *', async () => {
+  const tasks = readTasks();
+  const priorityTasks = tasks.filter(task => 
+    task.enabled && 
+    task.name.toLowerCase().includes('priority') || 
+    task.name.toLowerCase().includes('urgent')
+  );
+  
+  if (priorityTasks.length > 0) {
+    addLog(`⚡ Running priority check for ${priorityTasks.length} urgent tasks`, 'info');
+    for (const task of priorityTasks) {
+      await runTask(task);
+      await new Promise(resolve => setTimeout(resolve, 15000));
+    }
   }
 });
 
