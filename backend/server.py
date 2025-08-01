@@ -282,6 +282,36 @@ async def get_logs():
     logs = await db.logs.find().sort("timestamp", -1).to_list(100)  # Get latest 100 logs
     return [LogEntry(**log) for log in logs]
 
+# Instagram Automation Stats and Monitoring
+@api_router.get("/instagram/stats")
+async def get_instagram_stats():
+    try:
+        monitoring_stats = instagram_engine.get_monitoring_stats()
+        upload_stats = instagram_engine.get_upload_stats()
+        
+        return {
+            "monitoring": monitoring_stats,
+            "uploads": upload_stats,
+            "engine_status": "active"
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@api_router.post("/instagram/test-connection")
+async def test_instagram_connection():
+    try:
+        # Test if we have any authenticated accounts
+        if not instagram_engine.authenticated_clients:
+            return {"status": "no_accounts", "message": "No Instagram accounts authenticated"}
+        
+        return {
+            "status": "connected",
+            "accounts": list(instagram_engine.authenticated_clients.keys()),
+            "message": "Instagram API connection active"
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 # Include the router in the main app
 app.include_router(api_router)
 
