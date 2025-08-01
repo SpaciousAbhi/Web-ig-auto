@@ -1270,5 +1270,125 @@
     "message": "📥 Downloading content from: https://picsum.photos/600/800?tech",
     "type": "info",
     "timestamp": "2025-08-01T14:25:25.836Z"
+  },
+  {
+    "id": "1754058326836",
+    "message": "📤 Processing reel from @natgeo: natgeo_reel_1754058300315",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:26.836Z"
+  },
+  {
+    "id": "1754058326838",
+    "message": "🚀 POSTING REEL to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:26.838Z"
+  },
+  {
+    "id": "1754058326839",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:26.839Z"
+  },
+  {
+    "id": "1754058327838",
+    "message": "✏️ Preparing caption: \"🔬 Discovery Channel: Unveiling the mysteries of s...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:27.838Z"
+  },
+  {
+    "id": "1754058328841",
+    "message": "🎬 Processing as Instagram Reel with video optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:28.841Z"
+  },
+  {
+    "id": "1754058328842",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:28.842Z"
+  },
+  {
+    "id": "1754058330345",
+    "message": "📥 Downloading content from: https://picsum.photos/600/800?animals",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:30.345Z"
+  },
+  {
+    "id": "1754058331343",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:31.343Z"
+  },
+  {
+    "id": "1754058332348",
+    "message": "✏️ Preparing caption: \"🦁 Amazing wildlife moments captured in motion! Na...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:32.348Z"
+  },
+  {
+    "id": "1754058333351",
+    "message": "🎬 Processing as Instagram Reel with video optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:33.351Z"
+  },
+  {
+    "id": "1754058334345",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:25:34.345Z"
+  },
+  {
+    "id": "1754058334347",
+    "message": "🔗 Post URL: https://instagram.com/p/discovery_1754058244257_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:34.347Z"
+  },
+  {
+    "id": "1754058334348",
+    "message": "✅ Posted reel from @discovery to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:25:34.348Z"
+  },
+  {
+    "id": "1754058335853",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:35.853Z"
+  },
+  {
+    "id": "1754058338855",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:25:38.855Z"
+  },
+  {
+    "id": "1754058338857",
+    "message": "🔗 Post URL: https://instagram.com/p/natgeo_reel_1754058300315_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:38.857Z"
+  },
+  {
+    "id": "1754058338859",
+    "message": "✅ Posted reel from @natgeo to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:25:38.859Z"
+  },
+  {
+    "id": "1754058347351",
+    "message": "📤 Processing post from @animalplanet: animalplanet_1754058246261",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:47.351Z"
+  },
+  {
+    "id": "1754058347352",
+    "message": "🚀 POSTING POST to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:47.352Z"
+  },
+  {
+    "id": "1754058347354",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:47.354Z"
   }
 ]
