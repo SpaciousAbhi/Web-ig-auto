@@ -400,8 +400,11 @@ function App() {
                       <div className="text-sm text-gray-400 space-y-1">
                         <p>Source: @{task.sourceUsername}</p>
                         <p>Destinations: {task.destinationAccounts.join(', ')}</p>
-                        <p>Content: {Object.entries(task.contentTypes).filter(([_, enabled]) => enabled).map(([type]) => type).join(', ')}</p>
+                        <p>Content: {Object.entries(task.contentTypes).filter(([_, enabled]) => enabled).map(([type]) => 
+                          type.charAt(0).toUpperCase() + type.slice(1)
+                        ).join(', ')}</p>
                         {task.lastRun && <p>Last run: {new Date(task.lastRun).toLocaleString()}</p>}
+                        {task.lastProcessedCount && <p>Last processed: {task.lastProcessedCount} items</p>}
                       </div>
                     </div>
                   ))}
