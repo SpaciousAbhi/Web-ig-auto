@@ -9,6 +9,10 @@ from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Optional
 import uuid
 from datetime import datetime
+import asyncio
+
+# Import Instagram automation components
+from instagram_engine import InstagramAutomationEngine
 
 
 ROOT_DIR = Path(__file__).parent
