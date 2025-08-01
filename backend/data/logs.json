@@ -4,5 +4,17 @@
     "message": "Instagram Auto Poster backend running on port 8001",
     "type": "info",
     "timestamp": "2025-08-01T13:36:20.352Z"
+  },
+  {
+    "id": "1754055440027",
+    "message": "Starting Instagram login for badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T13:37:20.027Z"
+  },
+  {
+    "id": "1754055440142",
+    "message": "Instagram login failed for badshitland: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1181/chrome-linux/headless_shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+    "type": "error",
+    "timestamp": "2025-08-01T13:37:20.142Z"
   }
 ]
