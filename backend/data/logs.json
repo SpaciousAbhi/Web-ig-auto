@@ -340,5 +340,11 @@
     "message": "ℹ️ No new content found across all 4 source accounts",
     "type": "info",
     "timestamp": "2025-08-01T14:22:08.522Z"
+  },
+  {
+    "id": "1754058162176",
+    "message": "Instagram Auto Poster backend running on port 8001",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:42.176Z"
   }
 ]
