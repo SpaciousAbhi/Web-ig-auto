@@ -55,7 +55,7 @@ class InstagramAccountCreate(BaseModel):
 class InstagramAccountRemove(BaseModel):
     username: str
 
-# Task Models
+# Task Models with Real Instagram Integration
 class Task(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     name: str
