@@ -55,82 +55,125 @@ const addLog = (message, type = 'info') => {
 
 // Instagram automation functions
 async function loginToInstagram(username, password) {
+  let browser = null;
   try {
     addLog(`Starting Instagram login for ${username}`, 'info');
     
-    // DEMO MODE: For testing purposes, we'll simulate a successful login
-    // In production, uncomment the real automation code below
-    if (username === 'badshitland' || true) { // Enable demo mode for all accounts
-      addLog(`Demo mode: Simulating login for ${username}`, 'info');
-      await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate processing time
-      
-      const sessionData = {
-        username,
-        cookies: [
-          {
-            name: 'sessionid',
-            value: 'demo_session_' + Date.now(),
-            domain: '.instagram.com'
-          }
-        ],
-        userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-        createdAt: new Date().toISOString(),
-        demoMode: true
-      };
-      
-      addLog(`Successfully logged in to Instagram for ${username} (Demo Mode)`, 'success');
-      return sessionData;
-    }
-    
-    // REAL INSTAGRAM AUTOMATION (Currently disabled for demo)
-    /*
-    let browser = null;
     browser = await playwright.chromium.launch({
-      headless: true,
+      headless: false, // Changed to false for better debugging
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage',
-        '--disable-accelerated-2d-canvas',
+        '--disable-blink-features=AutomationControlled',
+        '--disable-features=VizDisplayCompositor',
         '--no-first-run',
-        '--no-zygote',
-        '--disable-gpu'
+        '--disable-web-security',
+        '--disable-features=TranslateUI'
       ]
     });
 
     const context = await browser.newContext({
       viewport: { width: 1280, height: 720 },
-      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      locale: 'en-US',
+      timezoneId: 'America/New_York'
     });
 
     const page = await context.newPage();
     
+    // Add extra stealth measures
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'webdriver', {
+        get: () => undefined,
+      });
+      delete navigator.__proto__.webdriver;
+    });
+    
     // Go to Instagram login page
-    await page.goto('https://www.instagram.com/accounts/login/', { waitUntil: 'networkidle' });
+    await page.goto('https://www.instagram.com/accounts/login/', { 
+      waitUntil: 'networkidle',
+      timeout: 30000 
+    });
     await page.waitForTimeout(3000);
 
     // Accept cookies if present
     try {
-      await page.click('button:has-text("Accept")', { timeout: 5000 });
-      await page.waitForTimeout(1000);
+      const acceptButton = await page.waitForSelector('button:has-text("Accept All"), button:has-text("Accept"), button[data-testid="cookie-accept-button"], button:contains("Accept")', { timeout: 5000 });
+      if (acceptButton) {
+        await acceptButton.click();
+        await page.waitForTimeout(2000);
+      }
     } catch (e) {
-      // Cookies dialog might not appear
+      addLog('No cookie banner found', 'info');
     }
 
-    // Fill login form
-    await page.fill('input[name="username"]', username, { delay: 100 });
+    // Wait for login form to be visible
+    await page.waitForSelector('input[name="username"]', { timeout: 10000 });
+    
+    // Fill login form with human-like delays
+    await page.type('input[name="username"]', username, { delay: 120 });
     await page.waitForTimeout(1000);
-    await page.fill('input[name="password"]', password, { delay: 100 });
-    await page.waitForTimeout(1000);
+    await page.type('input[name="password"]', password, { delay: 100 });
+    await page.waitForTimeout(1500);
 
     // Click login button
-    await page.click('button[type="submit"]', { delay: 500 });
+    await page.click('button[type="submit"]');
+    addLog('Login form submitted', 'info');
+    
+    // Wait for navigation or error
     await page.waitForTimeout(5000);
 
-    // Check if login was successful
+    // Check for various possible outcomes
     const currentUrl = page.url();
-    if (currentUrl.includes('/accounts/login/') || currentUrl.includes('/challenge/')) {
-      throw new Error('Login failed - check credentials or 2FA is enabled');
+    
+    // Check if we're still on login page (login failed)
+    if (currentUrl.includes('/accounts/login/')) {
+      // Check for error messages
+      const errorMessages = await page.$$eval('[role="alert"], .error-message, [data-testid="login-error"]', 
+        elements => elements.map(el => el.textContent).filter(text => text.trim())
+      );
+      
+      if (errorMessages.length > 0) {
+        throw new Error(`Login failed: ${errorMessages[0]}`);
+      } else {
+        throw new Error('Login failed - check credentials');
+      }
+    }
+    
+    // Check if 2FA is required
+    if (currentUrl.includes('/challenge/')) {
+      throw new Error('2FA challenge detected - please disable 2FA for automation');
+    }
+    
+    // Check if we need to dismiss "Save Login Info" prompt
+    try {
+      const notNowButton = await page.waitForSelector('button:has-text("Not Now"), button:contains("Not now")', { timeout: 5000 });
+      if (notNowButton) {
+        await notNowButton.click();
+        await page.waitForTimeout(2000);
+      }
+    } catch (e) {
+      // Save login prompt might not appear
+    }
+    
+    // Check if we need to dismiss notifications prompt
+    try {
+      const notNowButton = await page.waitForSelector('button:has-text("Not Now"), button:contains("Not now")', { timeout: 3000 });
+      if (notNowButton) {
+        await notNowButton.click();
+        await page.waitForTimeout(2000);
+      }
+    } catch (e) {
+      // Notifications prompt might not appear
+    }
+
+    // Verify we're logged in by checking for home feed or profile elements
+    try {
+      await page.waitForSelector('[data-testid="new-post-button"], svg[aria-label="New post"], [aria-label="Home"], nav', { timeout: 10000 });
+      addLog('Login successful - Instagram home page loaded', 'success');
+    } catch (e) {
+      throw new Error('Login verification failed - unable to find Instagram interface elements');
     }
 
     // Save session cookies
@@ -139,15 +182,22 @@ async function loginToInstagram(username, password) {
       username,
       cookies,
       userAgent: await page.evaluate(() => navigator.userAgent),
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
+      demoMode: false // Real mode enabled
     };
 
     await browser.close();
     addLog(`Successfully logged in to Instagram for ${username}`, 'success');
     return sessionData;
-    */
 
   } catch (error) {
+    if (browser) {
+      try {
+        await browser.close();
+      } catch (e) {
+        // Browser might already be closed
+      }
+    }
     addLog(`Instagram login failed for ${username}: ${error.message}`, 'error');
     throw error;
   }
