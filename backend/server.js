@@ -154,10 +154,38 @@ async function loginToInstagram(username, password) {
 }
 
 async function scrapeInstagramPosts(username, lastPostId = null) {
-  let browser = null;
   try {
     addLog(`Scraping posts from @${username}`, 'info');
     
+    // DEMO MODE: Return sample posts for demonstration
+    const demoPosts = [
+      {
+        id: 'demo_post_' + Date.now(),
+        url: `https://www.instagram.com/p/demo_post_${Date.now()}/`,
+        imageUrl: 'https://picsum.photos/400/400?random=1',
+        caption: `Amazing content from @${username}! 🚀✨ #instagram #automation`,
+        timestamp: new Date().toISOString()
+      },
+      {
+        id: 'demo_post_' + (Date.now() - 1000),
+        url: `https://www.instagram.com/p/demo_post_${Date.now() - 1000}/`,
+        imageUrl: 'https://picsum.photos/400/400?random=2',
+        caption: `Another great post from @${username}! 📸💫 #content #social`,
+        timestamp: new Date(Date.now() - 86400000).toISOString()
+      }
+    ];
+    
+    // Filter out posts if we have a lastPostId
+    const newPosts = lastPostId ? 
+      demoPosts.filter(post => post.id !== lastPostId) : 
+      demoPosts;
+    
+    addLog(`Found ${newPosts.length} new posts from @${username} (Demo Mode)`, 'info');
+    return newPosts;
+
+    // REAL INSTAGRAM SCRAPING (Currently disabled for demo)
+    /*
+    let browser = null;
     browser = await playwright.chromium.launch({
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -197,9 +225,9 @@ async function scrapeInstagramPosts(username, lastPostId = null) {
     await browser.close();
     addLog(`Found ${posts.length} new posts from @${username}`, 'info');
     return posts;
+    */
 
   } catch (error) {
-    if (browser) await browser.close();
     addLog(`Failed to scrape posts from @${username}: ${error.message}`, 'error');
     return [];
   }
