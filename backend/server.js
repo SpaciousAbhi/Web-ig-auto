@@ -355,23 +355,26 @@ async function scrapeInstagramPosts(username, lastPostId = null, contentTypes = 
   }
 }
 
-async function postToInstagram(sessionData, imageUrl, caption) {
+async function postToInstagram(sessionData, content) {
+  let browser = null;
   try {
-    addLog(`Posting to Instagram for @${sessionData.username}`, 'info');
+    addLog(`Posting ${content.type} to Instagram for @${sessionData.username}`, 'info');
     
-    // DEMO MODE: Simulate posting
     if (sessionData.demoMode) {
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate processing time
-      addLog(`Demo mode: Successfully posted content to @${sessionData.username}`, 'success');
-      return { success: true, message: 'Post created successfully (Demo Mode)' };
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      addLog(`Demo mode: Successfully posted ${content.type} to @${sessionData.username}`, 'success');
+      return { success: true, message: `${content.type} created successfully (Demo Mode)` };
     }
     
-    // REAL INSTAGRAM POSTING (Currently disabled for demo)
-    /*
-    let browser = null;
+    // REAL INSTAGRAM POSTING
     browser = await playwright.chromium.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+      headless: false, // Set to false for debugging
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-blink-features=AutomationControlled'
+      ]
     });
 
     const context = await browser.newContext({
@@ -382,23 +385,132 @@ async function postToInstagram(sessionData, imageUrl, caption) {
     await context.addCookies(sessionData.cookies);
     const page = await context.newPage();
     
-    await page.goto('https://www.instagram.com/', { waitUntil: 'networkidle' });
+    // Navigate to Instagram home
+    await page.goto('https://www.instagram.com/', { 
+      waitUntil: 'networkidle',
+      timeout: 30000 
+    });
+    await page.waitForTimeout(3000);
+
+    // Find and click the "New post" button
+    let newPostButton;
+    try {
+      newPostButton = await page.waitForSelector(
+        'svg[aria-label="New post"], [data-testid="new-post-button"], a[href="/create/select/"]',
+        { timeout: 10000 }
+      );
+      
+      if (!newPostButton) {
+        // Try alternative selectors
+        newPostButton = await page.waitForSelector('div[role="menuitem"]:has-text("Create")', { timeout: 5000 });
+      }
+    } catch (error) {
+      throw new Error('Could not find New Post button - account might not be properly logged in');
+    }
+
+    await newPostButton.click();
     await page.waitForTimeout(2000);
 
-    // Navigate to create post
-    await page.click('[aria-label="New post"]');
-    await page.waitForTimeout(2000);
-
-    // This is a simplified version - real implementation would need to handle file uploads
-    // For now, we'll just simulate the process
-    addLog(`Simulated post creation for @${sessionData.username}`, 'info');
-    
-    await browser.close();
-    return { success: true, message: 'Post created successfully (simulated)' };
-    */
+    // Handle file upload
+    if (content.imageUrl || content.videoUrl) {
+      try {
+        // Download the content first
+        const contentUrl = content.videoUrl || content.imageUrl;
+        const response = await page.context().request.get(contentUrl);
+        const buffer = await response.body();
+        
+        // Create a temporary file
+        const fs = require('fs');
+        const path = require('path');
+        const tempDir = path.join(__dirname, 'temp');
+        if (!fs.existsSync(tempDir)) {
+          fs.mkdirSync(tempDir, { recursive: true });
+        }
+        
+        const fileExtension = content.isVideo ? '.mp4' : '.jpg';
+        const tempFilePath = path.join(tempDir, `temp_${Date.now()}${fileExtension}`);
+        fs.writeFileSync(tempFilePath, buffer);
+        
+        // Wait for file input
+        const fileInput = await page.waitForSelector('input[type="file"]', { timeout: 10000 });
+        await fileInput.setInputFiles(tempFilePath);
+        
+        addLog(`Uploaded ${content.type} file for posting`, 'info');
+        await page.waitForTimeout(3000);
+        
+        // Clean up temp file
+        fs.unlinkSync(tempFilePath);
+        
+        // Click Next button
+        const nextButton = await page.waitForSelector('button:has-text("Next"), button:contains("Next")', { timeout: 10000 });
+        await nextButton.click();
+        await page.waitForTimeout(2000);
+        
+        // Click Next again (crop/filter page)
+        const nextButton2 = await page.waitForSelector('button:has-text("Next"), button:contains("Next")', { timeout: 10000 });
+        await nextButton2.click();
+        await page.waitForTimeout(2000);
+        
+        // Add caption if available
+        if (content.caption) {
+          const captionTextarea = await page.waitForSelector('textarea[aria-label*="caption"], textarea[placeholder*="caption"]', { timeout: 5000 });
+          if (captionTextarea) {
+            await captionTextarea.fill(content.caption.slice(0, 2200)); // Instagram caption limit
+            await page.waitForTimeout(1000);
+          }
+        }
+        
+        // Post content based on type
+        if (content.type === 'reel') {
+          // For reels, look for reel-specific options
+          try {
+            const reelOption = await page.waitForSelector('button:has-text("Reel"), input[value="reel"]', { timeout: 3000 });
+            if (reelOption) {
+              await reelOption.click();
+              await page.waitForTimeout(1000);
+            }
+          } catch (e) {
+            addLog('Reel option not found, posting as regular video', 'info');
+          }
+        }
+        
+        // Final share button
+        const shareButton = await page.waitForSelector('button:has-text("Share"), button:contains("Share")', { timeout: 10000 });
+        await shareButton.click();
+        
+        // Wait for posting confirmation
+        await page.waitForTimeout(5000);
+        
+        // Check for success indicators
+        try {
+          await page.waitForSelector('div:has-text("shared"), div:contains("Your post has been shared")', { timeout: 10000 });
+          addLog(`Successfully posted ${content.type} to @${sessionData.username}`, 'success');
+          
+          await browser.close();
+          return { success: true, message: `${content.type} posted successfully to Instagram` };
+          
+        } catch (e) {
+          addLog(`Post submission completed but confirmation unclear`, 'info');
+          await browser.close();
+          return { success: true, message: `${content.type} likely posted successfully` };
+        }
+        
+      } catch (uploadError) {
+        throw new Error(`File upload failed: ${uploadError.message}`);
+      }
+    } else {
+      throw new Error('No content URL provided for posting');
+    }
 
   } catch (error) {
-    addLog(`Failed to post to Instagram for @${sessionData.username}: ${error.message}`, 'error');
+    if (browser) {
+      try {
+        await browser.close();
+      } catch (e) {
+        // Browser might already be closed
+      }
+    }
+    addLog(`Failed to post ${content.type} to Instagram for @${sessionData.username}: ${error.message}`, 'error');
     throw error;
   }
 }
