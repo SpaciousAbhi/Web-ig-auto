@@ -127,7 +127,7 @@ function App() {
         alert('Task created successfully!');
         setNewTask({
           name: '',
-          sourceUsername: '',
+          sourceUsername: [],
           destinationAccounts: [],
           contentTypes: { posts: true, reels: false, stories: false }
         });
