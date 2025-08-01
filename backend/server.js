@@ -669,21 +669,29 @@ app.post('/api/tasks/add', (req, res) => {
       return res.status(400).json({ error: 'All fields required' });
     }
 
+    // Handle both single string and array of source accounts
+    let sourceAccounts = sourceUsername;
+    if (typeof sourceUsername === 'string') {
+      sourceAccounts = sourceUsername.split(',').map(acc => acc.trim()).filter(acc => acc);
+    }
+
     const tasks = readTasks();
     const newTask = {
       id: Date.now().toString(),
       name,
-      sourceUsername,
+      sourceUsername: sourceAccounts, // Now supports multiple sources
       destinationAccounts,
       contentTypes,
       enabled: true,
       createdAt: new Date().toISOString(),
       lastRun: null,
-      lastPostId: null
+      lastPostIds: {} // Track last post ID for each source account
     };
 
     tasks.push(newTask);
     writeTasks(tasks);
+    
+    addLog(`📋 Created new task "${name}" with ${sourceAccounts.length} source accounts: ${sourceAccounts.join(', ')}`, 'success');
     
     res.json({ message: 'Task created successfully', task: newTask });
   } catch (error) {
