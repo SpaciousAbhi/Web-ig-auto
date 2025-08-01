@@ -675,11 +675,11 @@ async function runTask(task) {
   try {
     addLog(`Running task: ${task.name}`, 'info');
     
-    // Get new posts from source account
-    const posts = await scrapeInstagramPosts(task.sourceUsername, task.lastPostId);
+    // Get new posts from source account with content type filtering
+    const content = await scrapeInstagramPosts(task.sourceUsername, task.lastPostId, task.contentTypes);
     
-    if (posts.length === 0) {
-      addLog(`No new posts found for task: ${task.name}`, 'info');
+    if (content.length === 0) {
+      addLog(`No new content found for task: ${task.name}`, 'info');
       return;
     }
 
@@ -689,29 +689,58 @@ async function runTask(task) {
       task.destinationAccounts.includes(acc.username)
     );
 
-    // Post to each destination account
-    for (const post of posts) {
-      for (const account of destinationAccounts) {
-        try {
-          await postToInstagram(account, post.imageUrl, post.caption);
-          addLog(`Posted content to @${account.username}`, 'success');
-        } catch (error) {
-          addLog(`Failed to post to @${account.username}: ${error.message}`, 'error');
-        }
-      }
+    if (destinationAccounts.length === 0) {
+      addLog(`No valid destination accounts found for task: ${task.name}`, 'error');
+      return;
     }
 
-    // Update task with last post ID
+    // Post each piece of content to each destination account
+    for (const contentItem of content) {
+      addLog(`Processing ${contentItem.type}: ${contentItem.id}`, 'info');
+      
+      for (const account of destinationAccounts) {
+        try {
+          // Check if we should post this content type
+          const shouldPost = (
+            (contentItem.type === 'post' && task.contentTypes.posts) ||
+            (contentItem.type === 'reel' && task.contentTypes.reels) ||
+            (contentItem.type === 'story' && task.contentTypes.stories)
+          );
+          
+          if (!shouldPost) {
+            addLog(`Skipping ${contentItem.type} for task ${task.name} (content type disabled)`, 'info');
+            continue;
+          }
+          
+          await postToInstagram(account, contentItem);
+          addLog(`Posted ${contentItem.type} to @${account.username}`, 'success');
+          
+          // Add delay between posts to avoid rate limiting
+          await new Promise(resolve => setTimeout(resolve, 5000));
+          
+        } catch (error) {
+          addLog(`Failed to post ${contentItem.type} to @${account.username}: ${error.message}`, 'error');
+        }
+      }
+      
+      // Add delay between different content items
+      await new Promise(resolve => setTimeout(resolve, 3000));
+    }
+
+    // Update task with last processed content ID
     const tasks = readTasks();
     const taskIndex = tasks.findIndex(t => t.id === task.id);
     if (taskIndex >= 0) {
-      tasks[taskIndex].lastPostId = posts[0].id;
+      tasks[taskIndex].lastPostId = content[0].id;
       tasks[taskIndex].lastRun = new Date().toISOString();
+      tasks[taskIndex].lastProcessedCount = content.length;
       writeTasks(tasks);
     }
 
+    addLog(`Task "${task.name}" completed successfully. Processed ${content.length} items.`, 'success');
+
   } catch (error) {
-    addLog(`Task execution failed: ${error.message}`, 'error');
+    addLog(`Task execution failed for "${task.name}": ${error.message}`, 'error');
   }
 }
 
