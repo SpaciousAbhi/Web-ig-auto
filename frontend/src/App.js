@@ -17,7 +17,7 @@ function App() {
   // Task form state
   const [newTask, setNewTask] = useState({
     name: '',
-    sourceUsername: '',
+    sourceUsername: [], // Changed to array for multiple sources
     destinationAccounts: [],
     contentTypes: {
       posts: true,
