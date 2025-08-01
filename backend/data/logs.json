@@ -208,5 +208,11 @@
     "message": "No new content found for task: Enhanced Auto Poster with Reels",
     "type": "info",
     "timestamp": "2025-08-01T14:00:00.458Z"
+  },
+  {
+    "id": "1754058056346",
+    "message": "Instagram Auto Poster backend running on port 8001",
+    "type": "info",
+    "timestamp": "2025-08-01T14:20:56.346Z"
   }
 ]
