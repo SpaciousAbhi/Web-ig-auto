@@ -170,11 +170,30 @@ async def remove_account(account_data: InstagramAccountRemove):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Tasks Management
-@api_router.get("/tasks/list", response_model=List[Task])
+# Tasks Management with Real Instagram Automation
+@api_router.get("/tasks/list")
 async def get_tasks():
-    tasks = await db.tasks.find().to_list(1000)
-    return [Task(**task) for task in tasks]
+    try:
+        # Get tasks from Instagram engine
+        engine_tasks = instagram_engine.get_task_status()
+        
+        # Convert to list format expected by frontend
+        tasks = []
+        for task_id, task_data in engine_tasks.items():
+            tasks.append({
+                "id": task_id,
+                "name": task_data["name"],
+                "sourceUsername": task_data["source_accounts"],
+                "destinationAccounts": task_data["destination_accounts"],
+                "contentTypes": {ct: True for ct in task_data["content_types"]},
+                "enabled": task_data["enabled"],
+                "lastRun": task_data.get("last_run"),
+                "lastProcessedCount": task_data.get("last_processed_count", 0)
+            })
+        
+        return tasks
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @api_router.post("/tasks/add")
 async def add_task(task_data: TaskCreate):
@@ -185,17 +204,28 @@ async def add_task(task_data: TaskCreate):
             if not account:
                 raise HTTPException(status_code=400, detail=f"Destination account @{username} not found")
         
-        task = Task(**task_data.dict())
-        await db.tasks.insert_one(task.dict())
+        # Convert content types to list
+        content_types = [ct for ct, enabled in task_data.contentTypes.items() if enabled]
+        
+        # Create task in Instagram engine
+        success = instagram_engine.create_monitoring_task(
+            task_data.name,
+            task_data.sourceUsername,
+            task_data.destinationAccounts,
+            content_types
+        )
+        
+        if not success:
+            raise HTTPException(status_code=500, detail="Failed to create Instagram monitoring task")
         
         # Log the action
         log_entry = LogEntry(
-            message=f"Created task '{task_data.name}' monitoring {len(task_data.sourceUsername)} source accounts", 
+            message=f"Created Instagram automation task '{task_data.name}' monitoring {len(task_data.sourceUsername)} accounts", 
             type="success"
         )
         await db.logs.insert_one(log_entry.dict())
         
-        return {"message": "Task created successfully"}
+        return {"message": "Instagram automation task created successfully"}
     except HTTPException:
         raise
     except Exception as e:
@@ -204,15 +234,12 @@ async def add_task(task_data: TaskCreate):
 @api_router.post("/tasks/toggle")
 async def toggle_task(task_data: TaskToggle):
     try:
-        result = await db.tasks.update_one(
-            {"id": task_data.taskId},
-            {"$set": {"enabled": task_data.enabled}}
-        )
-        if result.matched_count == 0:
+        success = instagram_engine.toggle_task(task_data.taskId, task_data.enabled)
+        if not success:
             raise HTTPException(status_code=404, detail="Task not found")
         
         status = "enabled" if task_data.enabled else "disabled"
-        log_entry = LogEntry(message=f"Task {status}", type="info")
+        log_entry = LogEntry(message=f"Instagram automation task {status}", type="info")
         await db.logs.insert_one(log_entry.dict())
         
         return {"message": f"Task {status} successfully"}
@@ -224,24 +251,26 @@ async def toggle_task(task_data: TaskToggle):
 @api_router.post("/tasks/run")
 async def run_task(task_data: TaskRun):
     try:
-        task = await db.tasks.find_one({"id": task_data.taskId})
-        if not task:
-            raise HTTPException(status_code=404, detail="Task not found")
+        # Run the Instagram automation task
+        result = await instagram_engine.run_task(task_data.taskId)
         
-        # Update last run time
-        await db.tasks.update_one(
-            {"id": task_data.taskId},
-            {"$set": {"lastRun": datetime.utcnow(), "lastProcessedCount": 5}}  # Mock processing count
-        )
+        if not result["success"]:
+            raise HTTPException(status_code=500, detail=result.get("error", "Task execution failed"))
         
         # Log the action
+        processed_count = result.get("processed_count", 0)
+        found_count = result.get("found_content", 0)
+        
         log_entry = LogEntry(
-            message=f"Executed task '{task['name']}' - processed 5 items", 
+            message=f"Executed Instagram automation task - found {found_count} items, successfully posted {processed_count} items", 
             type="success"
         )
         await db.logs.insert_one(log_entry.dict())
         
-        return {"message": "Task executed successfully"}
+        return {
+            "message": f"Task executed successfully - posted {processed_count} items",
+            "details": result
+        }
     except HTTPException:
         raise
     except Exception as e:
