@@ -58,5 +58,11 @@
     "message": "Instagram Auto Poster backend running on port 8001",
     "type": "info",
     "timestamp": "2025-08-01T13:49:15.432Z"
+  },
+  {
+    "id": "1754056286944",
+    "message": "Instagram Auto Poster backend running on port 8001",
+    "type": "info",
+    "timestamp": "2025-08-01T13:51:26.944Z"
   }
 ]
