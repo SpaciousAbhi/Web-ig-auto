@@ -46,5 +46,11 @@
     "message": "Successfully logged in to Instagram for badshitland (Demo Mode)",
     "type": "success",
     "timestamp": "2025-08-01T13:39:48.040Z"
+  },
+  {
+    "id": "1754056050834",
+    "message": "Instagram Auto Poster backend running on port 8001",
+    "type": "info",
+    "timestamp": "2025-08-01T13:47:30.834Z"
   }
 ]
