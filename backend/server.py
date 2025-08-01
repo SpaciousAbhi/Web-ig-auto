@@ -35,6 +35,51 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+# Instagram Account Models
+class InstagramAccount(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    username: str
+    createdAt: datetime = Field(default_factory=datetime.utcnow)
+
+class InstagramAccountCreate(BaseModel):
+    username: str
+    password: str
+
+class InstagramAccountRemove(BaseModel):
+    username: str
+
+# Task Models
+class Task(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    sourceUsername: List[str]
+    destinationAccounts: List[str]
+    contentTypes: Dict[str, bool]
+    enabled: bool = True
+    createdAt: datetime = Field(default_factory=datetime.utcnow)
+    lastRun: Optional[datetime] = None
+    lastProcessedCount: Optional[int] = None
+
+class TaskCreate(BaseModel):
+    name: str
+    sourceUsername: List[str]
+    destinationAccounts: List[str]
+    contentTypes: Dict[str, bool]
+
+class TaskToggle(BaseModel):
+    taskId: str
+    enabled: bool
+
+class TaskRun(BaseModel):
+    taskId: str
+
+# Log Models
+class LogEntry(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    message: str
+    type: str  # 'info', 'success', 'error'
+    timestamp: datetime = Field(default_factory=datetime.utcnow)
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
