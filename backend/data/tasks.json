@@ -1,14 +1,14 @@
 [
   {
     "id": "1754055590524",
-    "name": "Test Auto Poster Task",
+    "name": "Enhanced Auto Poster with Reels",
     "sourceUsername": "natgeo",
     "destinationAccounts": [
       "badshitland"
     ],
     "contentTypes": {
       "posts": true,
-      "reels": false,
+      "reels": true,
       "stories": false
     },
     "enabled": true,
