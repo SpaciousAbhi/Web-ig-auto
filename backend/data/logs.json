@@ -118,5 +118,65 @@
     "message": "No new content found for task: Test Auto Poster Task",
     "type": "info",
     "timestamp": "2025-08-01T13:52:43.413Z"
+  },
+  {
+    "id": "1754056392261",
+    "message": "Manual test: Attempting to post to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T13:53:12.261Z"
+  },
+  {
+    "id": "1754056392262",
+    "message": "🚀 POSTING POST to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T13:53:12.262Z"
+  },
+  {
+    "id": "1754056392263",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T13:53:12.263Z"
+  },
+  {
+    "id": "1754056394264",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T13:53:14.264Z"
+  },
+  {
+    "id": "1754056395766",
+    "message": "📥 Downloading content from: https://picsum.photos/400/400?random=135",
+    "type": "info",
+    "timestamp": "2025-08-01T13:53:15.766Z"
+  },
+  {
+    "id": "1754056397768",
+    "message": "✏️ Preparing caption: \"🚀 Testing Instagram Auto Poster! This is automate...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T13:53:17.768Z"
+  },
+  {
+    "id": "1754056398769",
+    "message": "📸 Processing as Instagram Post with image optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T13:53:18.769Z"
+  },
+  {
+    "id": "1754056400770",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T13:53:20.770Z"
+  },
+  {
+    "id": "1754056403771",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T13:53:23.771Z"
+  },
+  {
+    "id": "1754056403772",
+    "message": "🔗 Post URL: https://instagram.com/p/test_1754056392260_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T13:53:23.772Z"
   }
 ]
