@@ -35,7 +35,13 @@
     },
     "enabled": true,
     "createdAt": "2025-08-01T14:21:22.313Z",
-    "lastRun": null,
-    "lastPostIds": {}
+    "lastRun": "2025-08-01T14:25:14.309Z",
+    "lastPostIds": {
+      "natgeo": "natgeo_reel_1754058182697",
+      "bbcearth": "bbcearth_1754058184703",
+      "discovery": "discovery_1754058186708",
+      "animalplanet": "animalplanet_1754058188713"
+    },
+    "lastProcessedCount": 5
   }
 ]
