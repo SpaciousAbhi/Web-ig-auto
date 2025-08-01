@@ -101,3 +101,84 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Instagram Auto Poster Dashboard - A full-stack application that allows users to manage Instagram accounts and create automated posting tasks to monitor source accounts and repost content to destination accounts."
+
+backend:
+  - task: "Fix deployment issue and basic server setup"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Fixed Heroku deployment issue by creating root requirements.txt file. Backend server running with basic FastAPI setup and MongoDB connection."
+
+  - task: "Implement Instagram accounts management API"
+    implemented: false
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: false
+        agent: "main"
+        comment: "Frontend expects /api/accounts/list, /api/accounts/add, /api/accounts/remove endpoints but these are not implemented in backend yet."
+
+  - task: "Implement tasks management API"
+    implemented: false
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: false
+        agent: "main"
+        comment: "Frontend expects /api/tasks/list, /api/tasks/add, /api/tasks/toggle, /api/tasks/run endpoints but these are not implemented in backend yet."
+
+  - task: "Implement logs API"
+    implemented: false
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: false
+        agent: "main"
+        comment: "Frontend expects /api/logs endpoint but this is not implemented in backend yet."
+
+frontend:
+  - task: "React dashboard UI"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Frontend is complete with beautiful Tailwind CSS design. Has three tabs: Accounts, Tasks, and Logs. All API calls are implemented but backend endpoints are missing."
+
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 0
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "Backend API implementation needed"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "main"
+    message: "Fixed deployment issue and got application running. Frontend is complete but backend is missing all core API endpoints. Ready to implement backend functionality based on user requirements."
