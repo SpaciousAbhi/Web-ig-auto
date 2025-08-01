@@ -758,6 +758,50 @@ cron.schedule('*/30 * * * *', async () => {
   }
 });
 
+// Test endpoint for manual Instagram posting
+app.post('/api/test/real-post', async (req, res) => {
+  try {
+    const { username } = req.body;
+    
+    if (!username) {
+      return res.status(400).json({ error: 'Username required' });
+    }
+
+    // Get the account
+    const accounts = readAccounts();
+    const account = accounts.find(acc => acc.username === username);
+    
+    if (!account) {
+      return res.status(404).json({ error: 'Account not found' });
+    }
+
+    // Create test content
+    const testContent = {
+      id: 'test_' + Date.now(),
+      type: 'post',
+      url: 'https://example.com/test',
+      imageUrl: 'https://picsum.photos/400/400?random=' + Math.floor(Math.random() * 1000),
+      caption: '🚀 Testing Instagram Auto Poster! This is automated content. #test #automation #emergent',
+      isVideo: false,
+      timestamp: new Date().toISOString()
+    };
+
+    addLog(`Manual test: Attempting to post to @${username}`, 'info');
+    
+    // Try to post
+    const result = await postToInstagram(account, testContent);
+    
+    res.json({ 
+      success: true, 
+      message: 'Test post attempted successfully',
+      result: result
+    });
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
