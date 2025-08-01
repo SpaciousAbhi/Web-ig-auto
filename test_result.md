@@ -115,43 +115,43 @@ backend:
     status_history:
       - working: true
         agent: "main"
-        comment: "Fixed Heroku deployment issue by creating root requirements.txt file. Backend server running with basic FastAPI setup and MongoDB connection."
+        comment: "Fixed Heroku deployment issue by creating root requirements.txt file and .python-version. Backend server running with basic FastAPI setup and MongoDB connection."
 
   - task: "Implement Instagram accounts management API"
-    implemented: false
-    working: "NA"
+    implemented: true
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
-      - working: false
+      - working: true
         agent: "main"
-        comment: "Frontend expects /api/accounts/list, /api/accounts/add, /api/accounts/remove endpoints but these are not implemented in backend yet."
+        comment: "Successfully implemented all accounts endpoints: /api/accounts/list, /api/accounts/add, /api/accounts/remove. Tested adding @testuser123 account successfully."
 
   - task: "Implement tasks management API"
-    implemented: false
-    working: "NA"
+    implemented: true
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
-      - working: false
+      - working: true
         agent: "main"
-        comment: "Frontend expects /api/tasks/list, /api/tasks/add, /api/tasks/toggle, /api/tasks/run endpoints but these are not implemented in backend yet."
+        comment: "Successfully implemented all tasks endpoints: /api/tasks/list, /api/tasks/add, /api/tasks/toggle, /api/tasks/run. UI shows task creation form with destination accounts properly populated."
 
   - task: "Implement logs API"
-    implemented: false
-    working: "NA"
+    implemented: true
+    working: true
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "medium"
     needs_retesting: false
     status_history:
-      - working: false
+      - working: true
         agent: "main"
-        comment: "Frontend expects /api/logs endpoint but this is not implemented in backend yet."
+        comment: "Successfully implemented /api/logs endpoint. System logs actions like account additions and task executions."
 
 frontend:
   - task: "React dashboard UI"
