@@ -220,5 +220,125 @@
     "message": "📋 Created new task \"Multi-Source Priority Automation\" with 4 source accounts: natgeo, bbcearth, discovery, animalplanet",
     "type": "success",
     "timestamp": "2025-08-01T14:21:22.314Z"
+  },
+  {
+    "id": "1754058120438",
+    "message": "⚡ Running priority check for 1 urgent tasks",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:00.438Z"
+  },
+  {
+    "id": "1754058120439",
+    "message": "🚀 Running task: Multi-Source Priority Automation",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:00.439Z"
+  },
+  {
+    "id": "1754058120440",
+    "message": "📡 Monitoring 4 source accounts: natgeo, bbcearth, discovery, animalplanet",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:00.440Z"
+  },
+  {
+    "id": "1754058120442",
+    "message": "🔍 Checking @natgeo for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:00.442Z"
+  },
+  {
+    "id": "1754058120442",
+    "message": "Scraping content from @natgeo (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:00.442Z"
+  },
+  {
+    "id": "1754058120495",
+    "message": "Failed to scrape content from @natgeo: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1181/chrome-linux/headless_shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+    "type": "error",
+    "timestamp": "2025-08-01T14:22:00.495Z"
+  },
+  {
+    "id": "1754058120496",
+    "message": "ℹ️ No new content from @natgeo",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:00.496Z"
+  },
+  {
+    "id": "1754058122498",
+    "message": "🔍 Checking @bbcearth for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:02.498Z"
+  },
+  {
+    "id": "1754058122498",
+    "message": "Scraping content from @bbcearth (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:02.499Z"
+  },
+  {
+    "id": "1754058122504",
+    "message": "Failed to scrape content from @bbcearth: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1181/chrome-linux/headless_shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+    "type": "error",
+    "timestamp": "2025-08-01T14:22:02.504Z"
+  },
+  {
+    "id": "1754058122505",
+    "message": "ℹ️ No new content from @bbcearth",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:02.505Z"
+  },
+  {
+    "id": "1754058124506",
+    "message": "🔍 Checking @discovery for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:04.506Z"
+  },
+  {
+    "id": "1754058124507",
+    "message": "Scraping content from @discovery (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:04.507Z"
+  },
+  {
+    "id": "1754058124512",
+    "message": "Failed to scrape content from @discovery: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1181/chrome-linux/headless_shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+    "type": "error",
+    "timestamp": "2025-08-01T14:22:04.512Z"
+  },
+  {
+    "id": "1754058124512",
+    "message": "ℹ️ No new content from @discovery",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:04.512Z"
+  },
+  {
+    "id": "1754058126513",
+    "message": "🔍 Checking @animalplanet for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:06.513Z"
+  },
+  {
+    "id": "1754058126514",
+    "message": "Scraping content from @animalplanet (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:06.514Z"
+  },
+  {
+    "id": "1754058126519",
+    "message": "Failed to scrape content from @animalplanet: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1181/chrome-linux/headless_shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+    "type": "error",
+    "timestamp": "2025-08-01T14:22:06.519Z"
+  },
+  {
+    "id": "1754058126520",
+    "message": "ℹ️ No new content from @animalplanet",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:06.520Z"
+  },
+  {
+    "id": "1754058128522",
+    "message": "ℹ️ No new content found across all 4 source accounts",
+    "type": "info",
+    "timestamp": "2025-08-01T14:22:08.522Z"
   }
 ]
