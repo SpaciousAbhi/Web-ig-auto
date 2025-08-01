@@ -28,5 +28,23 @@
     "message": "Instagram Auto Poster backend running on port 8001",
     "type": "info",
     "timestamp": "2025-08-01T13:39:22.068Z"
+  },
+  {
+    "id": "1754055586037",
+    "message": "Starting Instagram login for badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T13:39:46.037Z"
+  },
+  {
+    "id": "1754055586038",
+    "message": "Demo mode: Simulating login for badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T13:39:46.038Z"
+  },
+  {
+    "id": "1754055588040",
+    "message": "Successfully logged in to Instagram for badshitland (Demo Mode)",
+    "type": "success",
+    "timestamp": "2025-08-01T13:39:48.040Z"
   }
 ]

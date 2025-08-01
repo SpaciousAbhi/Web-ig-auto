@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "id": "1754055590524",
+    "name": "Test Auto Poster Task",
+    "sourceUsername": "natgeo",
+    "destinationAccounts": [
+      "badshitland"
+    ],
+    "contentTypes": {
+      "posts": true,
+      "reels": false,
+      "stories": false
+    },
+    "enabled": true,
+    "createdAt": "2025-08-01T13:39:50.524Z",
+    "lastRun": null,
+    "lastPostId": null
+  }
+]

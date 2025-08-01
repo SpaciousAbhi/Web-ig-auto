@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "username": "badshitland",
+    "cookies": [
+      {
+        "name": "sessionid",
+        "value": "demo_session_1754055588040",
+        "domain": ".instagram.com"
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "createdAt": "2025-08-01T13:39:48.040Z",
+    "demoMode": true
+  }
+]
