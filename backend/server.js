@@ -203,82 +203,154 @@ async function loginToInstagram(username, password) {
   }
 }
 
-async function scrapeInstagramPosts(username, lastPostId = null) {
+async function scrapeInstagramPosts(username, lastPostId = null, contentTypes = { posts: true, reels: true, stories: false }) {
+  let browser = null;
   try {
-    addLog(`Scraping posts from @${username}`, 'info');
+    addLog(`Scraping content from @${username} (Posts: ${contentTypes.posts}, Reels: ${contentTypes.reels}, Stories: ${contentTypes.stories})`, 'info');
     
-    // DEMO MODE: Return sample posts for demonstration
-    const demoPosts = [
-      {
-        id: 'demo_post_' + Date.now(),
-        url: `https://www.instagram.com/p/demo_post_${Date.now()}/`,
-        imageUrl: 'https://picsum.photos/400/400?random=1',
-        caption: `Amazing content from @${username}! 🚀✨ #instagram #automation`,
-        timestamp: new Date().toISOString()
-      },
-      {
-        id: 'demo_post_' + (Date.now() - 1000),
-        url: `https://www.instagram.com/p/demo_post_${Date.now() - 1000}/`,
-        imageUrl: 'https://picsum.photos/400/400?random=2',
-        caption: `Another great post from @${username}! 📸💫 #content #social`,
-        timestamp: new Date(Date.now() - 86400000).toISOString()
-      }
-    ];
-    
-    // Filter out posts if we have a lastPostId
-    const newPosts = lastPostId ? 
-      demoPosts.filter(post => post.id !== lastPostId) : 
-      demoPosts;
-    
-    addLog(`Found ${newPosts.length} new posts from @${username} (Demo Mode)`, 'info');
-    return newPosts;
-
-    // REAL INSTAGRAM SCRAPING (Currently disabled for demo)
-    /*
-    let browser = null;
     browser = await playwright.chromium.launch({
       headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-blink-features=AutomationControlled'
+      ]
     });
 
-    const context = await browser.newContext();
+    const context = await browser.newContext({
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    });
     const page = await context.newPage();
     
-    await page.goto(`https://www.instagram.com/${username}/`, { waitUntil: 'networkidle' });
+    // Navigate to profile
+    await page.goto(`https://www.instagram.com/${username}/`, { 
+      waitUntil: 'networkidle',
+      timeout: 30000 
+    });
     await page.waitForTimeout(3000);
 
-    // Get posts data
-    const posts = await page.evaluate((lastId) => {
-      const articles = document.querySelectorAll('article a[href*="/p/"]');
-      const newPosts = [];
-      
-      for (let i = 0; i < Math.min(articles.length, 6); i++) {
-        const link = articles[i];
-        const href = link.getAttribute('href');
-        const postId = href.split('/p/')[1].split('/')[0];
+    const allContent = [];
+
+    // Scrape regular posts if enabled
+    if (contentTypes.posts) {
+      try {
+        await page.waitForSelector('article', { timeout: 10000 });
         
-        if (lastId && postId === lastId) break;
+        const posts = await page.evaluate((lastId) => {
+          const articles = document.querySelectorAll('article a[href*="/p/"]');
+          const newPosts = [];
+          
+          for (let i = 0; i < Math.min(articles.length, 6); i++) {
+            const link = articles[i];
+            const href = link.getAttribute('href');
+            const postId = href.split('/p/')[1].split('/')[0];
+            
+            if (lastId && postId === lastId) break;
+            
+            const img = link.querySelector('img');
+            const isVideo = link.querySelector('video') || link.querySelector('[aria-label*="Video"]');
+            
+            newPosts.push({
+              id: postId,
+              type: 'post',
+              url: `https://www.instagram.com${href}`,
+              imageUrl: img ? img.src : null,
+              caption: img ? img.alt : '',
+              isVideo: !!isVideo,
+              timestamp: new Date().toISOString()
+            });
+          }
+          
+          return newPosts;
+        }, lastPostId);
         
-        const img = link.querySelector('img');
-        newPosts.push({
-          id: postId,
-          url: `https://www.instagram.com${href}`,
-          imageUrl: img ? img.src : null,
-          caption: img ? img.alt : '',
-          timestamp: new Date().toISOString()
-        });
+        allContent.push(...posts);
+        addLog(`Found ${posts.length} regular posts from @${username}`, 'info');
+      } catch (error) {
+        addLog(`Error scraping posts: ${error.message}`, 'error');
       }
-      
-      return newPosts;
-    }, lastPostId);
+    }
+
+    // Scrape reels if enabled
+    if (contentTypes.reels) {
+      try {
+        // Navigate to reels tab
+        const reelsTab = await page.waitForSelector('a[href*="/reels/"], svg[aria-label="Reels"]', { timeout: 5000 });
+        if (reelsTab) {
+          await reelsTab.click();
+          await page.waitForTimeout(3000);
+          
+          const reels = await page.evaluate((lastId) => {
+            const reelLinks = document.querySelectorAll('a[href*="/reel/"]');
+            const newReels = [];
+            
+            for (let i = 0; i < Math.min(reelLinks.length, 4); i++) {
+              const link = reelLinks[i];
+              const href = link.getAttribute('href');
+              const reelId = href.split('/reel/')[1].split('/')[0];
+              
+              if (lastId && reelId === lastId) break;
+              
+              const video = link.querySelector('video');
+              const img = link.querySelector('img');
+              
+              newReels.push({
+                id: reelId,
+                type: 'reel',
+                url: `https://www.instagram.com${href}`,
+                imageUrl: img ? img.src : null,
+                videoUrl: video ? video.src : null,
+                caption: '',
+                isVideo: true,
+                timestamp: new Date().toISOString()
+              });
+            }
+            
+            return newReels;
+          }, lastPostId);
+          
+          allContent.push(...reels);
+          addLog(`Found ${reels.length} reels from @${username}`, 'info');
+        }
+      } catch (error) {
+        addLog(`Error scraping reels: ${error.message}`, 'error');
+      }
+    }
+
+    // Stories scraping (basic implementation - stories are more complex)
+    if (contentTypes.stories) {
+      try {
+        // Stories require more complex handling and are ephemeral
+        addLog(`Stories scraping is experimental - stories are ephemeral content`, 'info');
+        
+        // Navigate back to main profile
+        await page.goto(`https://www.instagram.com/${username}/`, { waitUntil: 'networkidle' });
+        await page.waitForTimeout(2000);
+        
+        // Look for story rings/highlights
+        const storyElement = await page.$('button[aria-label*="story"], div[role="button"]:has(img[alt*="story"])');
+        if (storyElement) {
+          addLog(`Found story content for @${username} but stories require special handling`, 'info');
+        }
+      } catch (error) {
+        addLog(`Error checking stories: ${error.message}`, 'error');
+      }
+    }
 
     await browser.close();
-    addLog(`Found ${posts.length} new posts from @${username}`, 'info');
-    return posts;
-    */
+    addLog(`Total content found: ${allContent.length} items from @${username}`, 'info');
+    return allContent;
 
   } catch (error) {
-    addLog(`Failed to scrape posts from @${username}: ${error.message}`, 'error');
+    if (browser) {
+      try {
+        await browser.close();
+      } catch (e) {
+        // Browser might already be closed
+      }
+    }
+    addLog(`Failed to scrape content from @${username}: ${error.message}`, 'error');
     return [];
   }
 }
