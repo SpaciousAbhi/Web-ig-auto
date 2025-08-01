@@ -1390,5 +1390,1211 @@
     "message": "📱 Opening Instagram mobile interface...",
     "type": "info",
     "timestamp": "2025-08-01T14:25:47.354Z"
+  },
+  {
+    "id": "1754058349357",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:49.357Z"
+  },
+  {
+    "id": "1754058350859",
+    "message": "📥 Downloading content from: https://picsum.photos/600/600?pets",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:50.859Z"
+  },
+  {
+    "id": "1754058351863",
+    "message": "🎉 Task \"Enhanced Auto Poster with Reels\" completed! Processed 2 items from 1 sources.",
+    "type": "success",
+    "timestamp": "2025-08-01T14:25:51.864Z"
+  },
+  {
+    "id": "1754058352862",
+    "message": "✏️ Preparing caption: \"🐾 Animal Planet: Celebrating the incredible bond ...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:52.862Z"
+  },
+  {
+    "id": "1754058353865",
+    "message": "📸 Processing as Instagram Post with image optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:53.865Z"
+  },
+  {
+    "id": "1754058355868",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:55.868Z"
+  },
+  {
+    "id": "1754058358870",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:25:58.870Z"
+  },
+  {
+    "id": "1754058358872",
+    "message": "🔗 Post URL: https://instagram.com/p/animalplanet_1754058246261_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:25:58.872Z"
+  },
+  {
+    "id": "1754058358874",
+    "message": "✅ Posted post from @animalplanet to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:25:58.874Z"
+  },
+  {
+    "id": "1754058360372",
+    "message": "⚡ Running priority check for 1 urgent tasks",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:00.372Z"
+  },
+  {
+    "id": "1754058360374",
+    "message": "🚀 Running task: Multi-Source Priority Automation",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:00.374Z"
+  },
+  {
+    "id": "1754058360376",
+    "message": "📡 Monitoring 4 source accounts: natgeo, bbcearth, discovery, animalplanet",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:00.376Z"
+  },
+  {
+    "id": "1754058360378",
+    "message": "🔍 Checking @natgeo for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:00.378Z"
+  },
+  {
+    "id": "1754058360380",
+    "message": "🔍 Scraping content from @natgeo (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:00.380Z"
+  },
+  {
+    "id": "1754058360382",
+    "message": "✅ Found 2 new items from @natgeo (Enhanced Demo Mode)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:00.382Z"
+  },
+  {
+    "id": "1754058360384",
+    "message": "✅ Found 2 new items from @natgeo",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:00.384Z"
+  },
+  {
+    "id": "1754058362386",
+    "message": "🔍 Checking @bbcearth for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:02.386Z"
+  },
+  {
+    "id": "1754058362388",
+    "message": "🔍 Scraping content from @bbcearth (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:02.388Z"
+  },
+  {
+    "id": "1754058362390",
+    "message": "✅ Found 1 new items from @bbcearth (Enhanced Demo Mode)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:02.390Z"
+  },
+  {
+    "id": "1754058362392",
+    "message": "✅ Found 1 new items from @bbcearth",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:02.392Z"
+  },
+  {
+    "id": "1754058364394",
+    "message": "🔍 Checking @discovery for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:04.394Z"
+  },
+  {
+    "id": "1754058364396",
+    "message": "🔍 Scraping content from @discovery (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:04.396Z"
+  },
+  {
+    "id": "1754058364399",
+    "message": "✅ Found 1 new items from @discovery (Enhanced Demo Mode)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:04.399Z"
+  },
+  {
+    "id": "1754058364401",
+    "message": "✅ Found 1 new items from @discovery",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:04.401Z"
+  },
+  {
+    "id": "1754058366403",
+    "message": "🔍 Checking @animalplanet for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:06.403Z"
+  },
+  {
+    "id": "1754058366405",
+    "message": "🔍 Scraping content from @animalplanet (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:06.405Z"
+  },
+  {
+    "id": "1754058366407",
+    "message": "✅ Found 1 new items from @animalplanet (Enhanced Demo Mode)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:06.407Z"
+  },
+  {
+    "id": "1754058366409",
+    "message": "✅ Found 1 new items from @animalplanet",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:06.409Z"
+  },
+  {
+    "id": "1754058368411",
+    "message": "🎯 Processing 5 new items for posting...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:08.411Z"
+  },
+  {
+    "id": "1754058368414",
+    "message": "📤 Processing post from @natgeo: natgeo_1754058360381",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:08.414Z"
+  },
+  {
+    "id": "1754058368416",
+    "message": "🚀 POSTING POST to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:08.416Z"
+  },
+  {
+    "id": "1754058368418",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:08.418Z"
+  },
+  {
+    "id": "1754058370420",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:10.420Z"
+  },
+  {
+    "id": "1754058371879",
+    "message": "🎉 Task \"Multi-Source Priority Automation\" completed! Processed 5 items from 4 sources.",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:11.879Z"
+  },
+  {
+    "id": "1754058371922",
+    "message": "📥 Downloading content from: https://picsum.photos/600/600?nature",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:11.922Z"
+  },
+  {
+    "id": "1754058373924",
+    "message": "✏️ Preparing caption: \"🌍 Stunning wildlife photography from National Geo...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:13.924Z"
+  },
+  {
+    "id": "1754058374927",
+    "message": "📸 Processing as Instagram Post with image optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:14.927Z"
+  },
+  {
+    "id": "1754058376929",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:16.929Z"
+  },
+  {
+    "id": "1754058379933",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:19.933Z"
+  },
+  {
+    "id": "1754058379935",
+    "message": "🔗 Post URL: https://instagram.com/p/natgeo_1754058360381_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:19.935Z"
+  },
+  {
+    "id": "1754058379937",
+    "message": "✅ Posted post from @natgeo to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:19.937Z"
+  },
+  {
+    "id": "1754058381867",
+    "message": "🎯 Executing task: Multi-Source Priority Automation",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:21.867Z"
+  },
+  {
+    "id": "1754058381869",
+    "message": "🚀 Running task: Multi-Source Priority Automation",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:21.869Z"
+  },
+  {
+    "id": "1754058381871",
+    "message": "📡 Monitoring 4 source accounts: natgeo, bbcearth, discovery, animalplanet",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:21.871Z"
+  },
+  {
+    "id": "1754058381873",
+    "message": "🔍 Checking @natgeo for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:21.873Z"
+  },
+  {
+    "id": "1754058381875",
+    "message": "🔍 Scraping content from @natgeo (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:21.875Z"
+  },
+  {
+    "id": "1754058381877",
+    "message": "✅ Found 2 new items from @natgeo (Enhanced Demo Mode)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:21.877Z"
+  },
+  {
+    "id": "1754058381879",
+    "message": "✅ Found 2 new items from @natgeo",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:21.879Z"
+  },
+  {
+    "id": "1754058383882",
+    "message": "🔍 Checking @bbcearth for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:23.882Z"
+  },
+  {
+    "id": "1754058383884",
+    "message": "🔍 Scraping content from @bbcearth (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:23.884Z"
+  },
+  {
+    "id": "1754058383886",
+    "message": "✅ Found 1 new items from @bbcearth (Enhanced Demo Mode)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:23.886Z"
+  },
+  {
+    "id": "1754058383889",
+    "message": "✅ Found 1 new items from @bbcearth",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:23.889Z"
+  },
+  {
+    "id": "1754058385891",
+    "message": "🔍 Checking @discovery for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:25.891Z"
+  },
+  {
+    "id": "1754058385894",
+    "message": "🔍 Scraping content from @discovery (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:25.894Z"
+  },
+  {
+    "id": "1754058385896",
+    "message": "✅ Found 1 new items from @discovery (Enhanced Demo Mode)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:25.896Z"
+  },
+  {
+    "id": "1754058385898",
+    "message": "✅ Found 1 new items from @discovery",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:25.898Z"
+  },
+  {
+    "id": "1754058387900",
+    "message": "🔍 Checking @animalplanet for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:27.900Z"
+  },
+  {
+    "id": "1754058387901",
+    "message": "🔍 Scraping content from @animalplanet (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:27.901Z"
+  },
+  {
+    "id": "1754058387903",
+    "message": "✅ Found 1 new items from @animalplanet (Enhanced Demo Mode)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:27.903Z"
+  },
+  {
+    "id": "1754058387905",
+    "message": "✅ Found 1 new items from @animalplanet",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:27.905Z"
+  },
+  {
+    "id": "1754058389907",
+    "message": "🎯 Processing 5 new items for posting...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:29.907Z"
+  },
+  {
+    "id": "1754058389910",
+    "message": "📤 Processing post from @natgeo: natgeo_1754058381877",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:29.910Z"
+  },
+  {
+    "id": "1754058389912",
+    "message": "🚀 POSTING POST to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:29.912Z"
+  },
+  {
+    "id": "1754058389914",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:29.914Z"
+  },
+  {
+    "id": "1754058391916",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:31.916Z"
+  },
+  {
+    "id": "1754058392939",
+    "message": "📤 Processing reel from @natgeo: natgeo_reel_1754058360382",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:32.939Z"
+  },
+  {
+    "id": "1754058392941",
+    "message": "🚀 POSTING REEL to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:32.941Z"
+  },
+  {
+    "id": "1754058392943",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:32.943Z"
+  },
+  {
+    "id": "1754058393420",
+    "message": "📥 Downloading content from: https://picsum.photos/600/600?nature",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:33.420Z"
+  },
+  {
+    "id": "1754058394945",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:34.945Z"
+  },
+  {
+    "id": "1754058395422",
+    "message": "✏️ Preparing caption: \"🌍 Stunning wildlife photography from National Geo...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:35.422Z"
+  },
+  {
+    "id": "1754058396424",
+    "message": "📸 Processing as Instagram Post with image optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:36.424Z"
+  },
+  {
+    "id": "1754058396447",
+    "message": "📥 Downloading content from: https://picsum.photos/600/800?animals",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:36.447Z"
+  },
+  {
+    "id": "1754058398425",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:38.425Z"
+  },
+  {
+    "id": "1754058398449",
+    "message": "✏️ Preparing caption: \"🦁 Amazing wildlife moments captured in motion! Na...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:38.449Z"
+  },
+  {
+    "id": "1754058399450",
+    "message": "🎬 Processing as Instagram Reel with video optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:39.450Z"
+  },
+  {
+    "id": "1754058401427",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:41.427Z"
+  },
+  {
+    "id": "1754058401428",
+    "message": "🔗 Post URL: https://instagram.com/p/natgeo_1754058381877_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:41.428Z"
+  },
+  {
+    "id": "1754058401430",
+    "message": "✅ Posted post from @natgeo to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:41.430Z"
+  },
+  {
+    "id": "1754058401953",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:41.953Z"
+  },
+  {
+    "id": "1754058404955",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:44.955Z"
+  },
+  {
+    "id": "1754058404957",
+    "message": "🔗 Post URL: https://instagram.com/p/natgeo_reel_1754058360382_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:44.957Z"
+  },
+  {
+    "id": "1754058404960",
+    "message": "✅ Posted reel from @natgeo to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:26:44.960Z"
+  },
+  {
+    "id": "1754058414432",
+    "message": "📤 Processing reel from @natgeo: natgeo_reel_1754058381877",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:54.432Z"
+  },
+  {
+    "id": "1754058414434",
+    "message": "🚀 POSTING REEL to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:54.434Z"
+  },
+  {
+    "id": "1754058414437",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:54.437Z"
+  },
+  {
+    "id": "1754058416440",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:56.440Z"
+  },
+  {
+    "id": "1754058417943",
+    "message": "📥 Downloading content from: https://picsum.photos/600/800?animals",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:57.943Z"
+  },
+  {
+    "id": "1754058417962",
+    "message": "📤 Processing post from @bbcearth: bbcearth_1754058362390",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:57.962Z"
+  },
+  {
+    "id": "1754058417964",
+    "message": "🚀 POSTING POST to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:57.964Z"
+  },
+  {
+    "id": "1754058417966",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:57.966Z"
+  },
+  {
+    "id": "1754058419946",
+    "message": "✏️ Preparing caption: \"🦁 Amazing wildlife moments captured in motion! Na...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:59.946Z"
+  },
+  {
+    "id": "1754058419968",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:26:59.968Z"
+  },
+  {
+    "id": "1754058420950",
+    "message": "🎬 Processing as Instagram Reel with video optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:00.950Z"
+  },
+  {
+    "id": "1754058421470",
+    "message": "📥 Downloading content from: https://picsum.photos/600/600?landscape",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:01.470Z"
+  },
+  {
+    "id": "1754058423452",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:03.452Z"
+  },
+  {
+    "id": "1754058423473",
+    "message": "✏️ Preparing caption: \"🌿 BBC Earth presents: The wonders of our natural ...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:03.473Z"
+  },
+  {
+    "id": "1754058424476",
+    "message": "📸 Processing as Instagram Post with image optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:04.476Z"
+  },
+  {
+    "id": "1754058426454",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:27:06.454Z"
+  },
+  {
+    "id": "1754058426456",
+    "message": "🔗 Post URL: https://instagram.com/p/natgeo_reel_1754058381877_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:06.456Z"
+  },
+  {
+    "id": "1754058426459",
+    "message": "✅ Posted reel from @natgeo to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:27:06.459Z"
+  },
+  {
+    "id": "1754058426479",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:06.479Z"
+  },
+  {
+    "id": "1754058429481",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:27:09.481Z"
+  },
+  {
+    "id": "1754058429483",
+    "message": "🔗 Post URL: https://instagram.com/p/bbcearth_1754058362390_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:09.483Z"
+  },
+  {
+    "id": "1754058429485",
+    "message": "✅ Posted post from @bbcearth to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:27:09.485Z"
+  },
+  {
+    "id": "1754058439461",
+    "message": "📤 Processing post from @bbcearth: bbcearth_1754058383886",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:19.461Z"
+  },
+  {
+    "id": "1754058439464",
+    "message": "🚀 POSTING POST to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:19.464Z"
+  },
+  {
+    "id": "1754058439466",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:19.466Z"
+  },
+  {
+    "id": "1754058441468",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:21.468Z"
+  },
+  {
+    "id": "1754058442487",
+    "message": "📤 Processing reel from @discovery: discovery_1754058364398",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:22.487Z"
+  },
+  {
+    "id": "1754058442489",
+    "message": "🚀 POSTING REEL to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:22.489Z"
+  },
+  {
+    "id": "1754058442492",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:22.492Z"
+  },
+  {
+    "id": "1754058442971",
+    "message": "📥 Downloading content from: https://picsum.photos/600/600?landscape",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:22.971Z"
+  },
+  {
+    "id": "1754058444494",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:24.494Z"
+  },
+  {
+    "id": "1754058444974",
+    "message": "✏️ Preparing caption: \"🌿 BBC Earth presents: The wonders of our natural ...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:24.974Z"
+  },
+  {
+    "id": "1754058445977",
+    "message": "📸 Processing as Instagram Post with image optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:25.977Z"
+  },
+  {
+    "id": "1754058445998",
+    "message": "📥 Downloading content from: https://picsum.photos/600/800?tech",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:25.998Z"
+  },
+  {
+    "id": "1754058447978",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:27.978Z"
+  },
+  {
+    "id": "1754058448000",
+    "message": "✏️ Preparing caption: \"🔬 Discovery Channel: Unveiling the mysteries of s...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:28.000Z"
+  },
+  {
+    "id": "1754058449003",
+    "message": "🎬 Processing as Instagram Reel with video optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:29.003Z"
+  },
+  {
+    "id": "1754058450980",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:27:30.980Z"
+  },
+  {
+    "id": "1754058450982",
+    "message": "🔗 Post URL: https://instagram.com/p/bbcearth_1754058383886_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:30.982Z"
+  },
+  {
+    "id": "1754058450984",
+    "message": "✅ Posted post from @bbcearth to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:27:30.984Z"
+  },
+  {
+    "id": "1754058451505",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:31.505Z"
+  },
+  {
+    "id": "1754058454507",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:27:34.507Z"
+  },
+  {
+    "id": "1754058454509",
+    "message": "🔗 Post URL: https://instagram.com/p/discovery_1754058364398_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:34.509Z"
+  },
+  {
+    "id": "1754058454511",
+    "message": "✅ Posted reel from @discovery to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:27:34.511Z"
+  },
+  {
+    "id": "1754058463987",
+    "message": "📤 Processing reel from @discovery: discovery_1754058385896",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:43.987Z"
+  },
+  {
+    "id": "1754058463990",
+    "message": "🚀 POSTING REEL to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:43.990Z"
+  },
+  {
+    "id": "1754058463992",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:43.992Z"
+  },
+  {
+    "id": "1754058465995",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:45.995Z"
+  },
+  {
+    "id": "1754058467497",
+    "message": "📥 Downloading content from: https://picsum.photos/600/800?tech",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:47.497Z"
+  },
+  {
+    "id": "1754058467515",
+    "message": "📤 Processing post from @animalplanet: animalplanet_1754058366407",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:47.515Z"
+  },
+  {
+    "id": "1754058467517",
+    "message": "🚀 POSTING POST to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:47.517Z"
+  },
+  {
+    "id": "1754058467519",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:47.519Z"
+  },
+  {
+    "id": "1754058469499",
+    "message": "✏️ Preparing caption: \"🔬 Discovery Channel: Unveiling the mysteries of s...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:49.499Z"
+  },
+  {
+    "id": "1754058469522",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:49.522Z"
+  },
+  {
+    "id": "1754058470502",
+    "message": "🎬 Processing as Instagram Reel with video optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:50.502Z"
+  },
+  {
+    "id": "1754058471024",
+    "message": "📥 Downloading content from: https://picsum.photos/600/600?pets",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:51.024Z"
+  },
+  {
+    "id": "1754058473005",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:53.005Z"
+  },
+  {
+    "id": "1754058473027",
+    "message": "✏️ Preparing caption: \"🐾 Animal Planet: Celebrating the incredible bond ...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:53.027Z"
+  },
+  {
+    "id": "1754058474030",
+    "message": "📸 Processing as Instagram Post with image optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:54.030Z"
+  },
+  {
+    "id": "1754058476008",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:27:56.008Z"
+  },
+  {
+    "id": "1754058476010",
+    "message": "🔗 Post URL: https://instagram.com/p/discovery_1754058385896_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:56.010Z"
+  },
+  {
+    "id": "1754058476013",
+    "message": "✅ Posted reel from @discovery to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:27:56.013Z"
+  },
+  {
+    "id": "1754058476032",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:56.032Z"
+  },
+  {
+    "id": "1754058479035",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:27:59.035Z"
+  },
+  {
+    "id": "1754058479037",
+    "message": "🔗 Post URL: https://instagram.com/p/animalplanet_1754058366407_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:27:59.037Z"
+  },
+  {
+    "id": "1754058479039",
+    "message": "✅ Posted post from @animalplanet to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:27:59.039Z"
+  },
+  {
+    "id": "1754058480479",
+    "message": "⚡ Running priority check for 1 urgent tasks",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:00.479Z"
+  },
+  {
+    "id": "1754058480481",
+    "message": "🚀 Running task: Multi-Source Priority Automation",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:00.481Z"
+  },
+  {
+    "id": "1754058480483",
+    "message": "📡 Monitoring 4 source accounts: natgeo, bbcearth, discovery, animalplanet",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:00.483Z"
+  },
+  {
+    "id": "1754058480486",
+    "message": "🔍 Checking @natgeo for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:00.486Z"
+  },
+  {
+    "id": "1754058480488",
+    "message": "🔍 Scraping content from @natgeo (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:00.488Z"
+  },
+  {
+    "id": "1754058480490",
+    "message": "✅ Found 2 new items from @natgeo (Enhanced Demo Mode)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:00.490Z"
+  },
+  {
+    "id": "1754058480492",
+    "message": "✅ Found 2 new items from @natgeo",
+    "type": "success",
+    "timestamp": "2025-08-01T14:28:00.492Z"
+  },
+  {
+    "id": "1754058482495",
+    "message": "🔍 Checking @bbcearth for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:02.495Z"
+  },
+  {
+    "id": "1754058482497",
+    "message": "🔍 Scraping content from @bbcearth (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:02.497Z"
+  },
+  {
+    "id": "1754058482499",
+    "message": "✅ Found 1 new items from @bbcearth (Enhanced Demo Mode)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:02.499Z"
+  },
+  {
+    "id": "1754058482503",
+    "message": "✅ Found 1 new items from @bbcearth",
+    "type": "success",
+    "timestamp": "2025-08-01T14:28:02.503Z"
+  },
+  {
+    "id": "1754058484506",
+    "message": "🔍 Checking @discovery for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:04.506Z"
+  },
+  {
+    "id": "1754058484508",
+    "message": "🔍 Scraping content from @discovery (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:04.508Z"
+  },
+  {
+    "id": "1754058484511",
+    "message": "✅ Found 1 new items from @discovery (Enhanced Demo Mode)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:04.511Z"
+  },
+  {
+    "id": "1754058484513",
+    "message": "✅ Found 1 new items from @discovery",
+    "type": "success",
+    "timestamp": "2025-08-01T14:28:04.513Z"
+  },
+  {
+    "id": "1754058486515",
+    "message": "🔍 Checking @animalplanet for new content...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:06.515Z"
+  },
+  {
+    "id": "1754058486518",
+    "message": "🔍 Scraping content from @animalplanet (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:06.518Z"
+  },
+  {
+    "id": "1754058486520",
+    "message": "✅ Found 1 new items from @animalplanet (Enhanced Demo Mode)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:06.520Z"
+  },
+  {
+    "id": "1754058486522",
+    "message": "✅ Found 1 new items from @animalplanet",
+    "type": "success",
+    "timestamp": "2025-08-01T14:28:06.522Z"
+  },
+  {
+    "id": "1754058488525",
+    "message": "🎯 Processing 5 new items for posting...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:08.525Z"
+  },
+  {
+    "id": "1754058488527",
+    "message": "📤 Processing post from @natgeo: natgeo_1754058480489",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:08.527Z"
+  },
+  {
+    "id": "1754058488530",
+    "message": "🚀 POSTING POST to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:08.530Z"
+  },
+  {
+    "id": "1754058488532",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:08.532Z"
+  },
+  {
+    "id": "1754058489016",
+    "message": "📤 Processing post from @animalplanet: animalplanet_1754058387903",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:09.016Z"
+  },
+  {
+    "id": "1754058489018",
+    "message": "🚀 POSTING POST to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:09.018Z"
+  },
+  {
+    "id": "1754058489020",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:09.020Z"
+  },
+  {
+    "id": "1754058490535",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:10.535Z"
+  },
+  {
+    "id": "1754058491024",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:11.024Z"
+  },
+  {
+    "id": "1754058492037",
+    "message": "📥 Downloading content from: https://picsum.photos/600/600?nature",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:12.037Z"
+  },
+  {
+    "id": "1754058492044",
+    "message": "🎉 Task \"Multi-Source Priority Automation\" completed! Processed 5 items from 4 sources.",
+    "type": "success",
+    "timestamp": "2025-08-01T14:28:12.044Z"
+  },
+  {
+    "id": "1754058492529",
+    "message": "📥 Downloading content from: https://picsum.photos/600/600?pets",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:12.529Z"
+  },
+  {
+    "id": "1754058494040",
+    "message": "✏️ Preparing caption: \"🌍 Stunning wildlife photography from National Geo...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:14.040Z"
+  },
+  {
+    "id": "1754058494532",
+    "message": "✏️ Preparing caption: \"🐾 Animal Planet: Celebrating the incredible bond ...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:14.532Z"
+  },
+  {
+    "id": "1754058495044",
+    "message": "📸 Processing as Instagram Post with image optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:15.044Z"
+  },
+  {
+    "id": "1754058495536",
+    "message": "📸 Processing as Instagram Post with image optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:15.536Z"
+  },
+  {
+    "id": "1754058497047",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:17.047Z"
+  },
+  {
+    "id": "1754058497539",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:17.539Z"
+  },
+  {
+    "id": "1754058500051",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:28:20.051Z"
+  },
+  {
+    "id": "1754058500053",
+    "message": "🔗 Post URL: https://instagram.com/p/natgeo_1754058480489_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:20.053Z"
+  },
+  {
+    "id": "1754058500057",
+    "message": "✅ Posted post from @natgeo to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:28:20.057Z"
+  },
+  {
+    "id": "1754058500542",
+    "message": "✅ POST SUCCESSFUL! Content published to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:28:20.542Z"
+  },
+  {
+    "id": "1754058500544",
+    "message": "🔗 Post URL: https://instagram.com/p/animalplanet_1754058387903_simulation/",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:20.544Z"
+  },
+  {
+    "id": "1754058500548",
+    "message": "✅ Posted post from @animalplanet to @badshitland",
+    "type": "success",
+    "timestamp": "2025-08-01T14:28:20.548Z"
+  },
+  {
+    "id": "1754058513060",
+    "message": "📤 Processing reel from @natgeo: natgeo_reel_1754058480489",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:33.060Z"
+  },
+  {
+    "id": "1754058513063",
+    "message": "🚀 POSTING REEL to @badshitland",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:33.063Z"
+  },
+  {
+    "id": "1754058513066",
+    "message": "📱 Opening Instagram mobile interface...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:33.066Z"
+  },
+  {
+    "id": "1754058513551",
+    "message": "🎉 Task \"Multi-Source Priority Automation\" completed! Processed 5 items from 4 sources.",
+    "type": "success",
+    "timestamp": "2025-08-01T14:28:33.551Z"
+  },
+  {
+    "id": "1754058515069",
+    "message": "🔐 Authenticating with saved session cookies...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:35.069Z"
+  },
+  {
+    "id": "1754058516573",
+    "message": "📥 Downloading content from: https://picsum.photos/600/800?animals",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:36.573Z"
+  },
+  {
+    "id": "1754058518576",
+    "message": "✏️ Preparing caption: \"🦁 Amazing wildlife moments captured in motion! Na...\"",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:38.576Z"
+  },
+  {
+    "id": "1754058519579",
+    "message": "🎬 Processing as Instagram Reel with video optimization...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:39.579Z"
+  },
+  {
+    "id": "1754058522083",
+    "message": "📤 Uploading content to Instagram servers...",
+    "type": "info",
+    "timestamp": "2025-08-01T14:28:42.083Z"
   }
 ]

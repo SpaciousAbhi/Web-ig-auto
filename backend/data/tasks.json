@@ -13,8 +13,12 @@
     },
     "enabled": true,
     "createdAt": "2025-08-01T13:39:50.524Z",
-    "lastRun": null,
-    "lastPostId": null
+    "lastRun": "2025-08-01T14:25:51.863Z",
+    "lastPostId": null,
+    "lastPostIds": {
+      "natgeo": "natgeo_reel_1754058300315"
+    },
+    "lastProcessedCount": 2
   },
   {
     "id": "1754058082313",
@@ -35,12 +39,12 @@
     },
     "enabled": true,
     "createdAt": "2025-08-01T14:21:22.313Z",
-    "lastRun": "2025-08-01T14:25:14.309Z",
+    "lastRun": "2025-08-01T14:28:33.550Z",
     "lastPostIds": {
-      "natgeo": "natgeo_reel_1754058182697",
-      "bbcearth": "bbcearth_1754058184703",
-      "discovery": "discovery_1754058186708",
-      "animalplanet": "animalplanet_1754058188713"
+      "natgeo": "natgeo_reel_1754058381877",
+      "bbcearth": "bbcearth_1754058383886",
+      "discovery": "discovery_1754058385896",
+      "animalplanet": "animalplanet_1754058387903"
     },
     "lastProcessedCount": 5
   }
