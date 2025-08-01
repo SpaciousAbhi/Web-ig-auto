@@ -234,10 +234,19 @@ async function scrapeInstagramPosts(username, lastPostId = null) {
 }
 
 async function postToInstagram(sessionData, imageUrl, caption) {
-  let browser = null;
   try {
     addLog(`Posting to Instagram for @${sessionData.username}`, 'info');
     
+    // DEMO MODE: Simulate posting
+    if (sessionData.demoMode) {
+      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate processing time
+      addLog(`Demo mode: Successfully posted content to @${sessionData.username}`, 'success');
+      return { success: true, message: 'Post created successfully (Demo Mode)' };
+    }
+    
+    // REAL INSTAGRAM POSTING (Currently disabled for demo)
+    /*
+    let browser = null;
     browser = await playwright.chromium.launch({
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -264,9 +273,9 @@ async function postToInstagram(sessionData, imageUrl, caption) {
     
     await browser.close();
     return { success: true, message: 'Post created successfully (simulated)' };
+    */
 
   } catch (error) {
-    if (browser) await browser.close();
     addLog(`Failed to post to Instagram for @${sessionData.username}: ${error.message}`, 'error');
     throw error;
   }
