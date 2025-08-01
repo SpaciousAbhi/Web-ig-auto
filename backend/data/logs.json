@@ -178,5 +178,35 @@
     "message": "🔗 Post URL: https://instagram.com/p/test_1754056392260_simulation/",
     "type": "info",
     "timestamp": "2025-08-01T13:53:23.772Z"
+  },
+  {
+    "id": "1754056800450",
+    "message": "Running scheduled task check",
+    "type": "info",
+    "timestamp": "2025-08-01T14:00:00.450Z"
+  },
+  {
+    "id": "1754056800450",
+    "message": "Running task: Enhanced Auto Poster with Reels",
+    "type": "info",
+    "timestamp": "2025-08-01T14:00:00.450Z"
+  },
+  {
+    "id": "1754056800451",
+    "message": "Scraping content from @natgeo (Posts: true, Reels: true, Stories: false)",
+    "type": "info",
+    "timestamp": "2025-08-01T14:00:00.451Z"
+  },
+  {
+    "id": "1754056800458",
+    "message": "Failed to scrape content from @natgeo: browserType.launch: Executable doesn't exist at /root/.cache/ms-playwright/chromium_headless_shell-1181/chrome-linux/headless_shell\n╔═════════════════════════════════════════════════════════════════════════╗\n║ Looks like Playwright Test or Playwright was just installed or updated. ║\n║ Please run the following command to download new browsers:              ║\n║                                                                         ║\n║     npx playwright install                                              ║\n║                                                                         ║\n║ <3 Playwright Team                                                      ║\n╚═════════════════════════════════════════════════════════════════════════╝",
+    "type": "error",
+    "timestamp": "2025-08-01T14:00:00.458Z"
+  },
+  {
+    "id": "1754056800458",
+    "message": "No new content found for task: Enhanced Auto Poster with Reels",
+    "type": "info",
+    "timestamp": "2025-08-01T14:00:00.458Z"
   }
 ]
