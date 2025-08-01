@@ -749,19 +749,15 @@ app.get('/api/logs', (req, res) => {
   }
 });
 
-// Task execution function
+// Enhanced task execution function for multiple source accounts
 async function runTask(task) {
   try {
-    addLog(`Running task: ${task.name}`, 'info');
+    addLog(`🚀 Running task: ${task.name}`, 'info');
     
-    // Get new posts from source account with content type filtering
-    const content = await scrapeInstagramPosts(task.sourceUsername, task.lastPostId, task.contentTypes);
+    // Handle both old single source and new multiple sources format
+    const sourceAccounts = Array.isArray(task.sourceUsername) ? task.sourceUsername : [task.sourceUsername];
+    addLog(`📡 Monitoring ${sourceAccounts.length} source accounts: ${sourceAccounts.join(', ')}`, 'info');
     
-    if (content.length === 0) {
-      addLog(`No new content found for task: ${task.name}`, 'info');
-      return;
-    }
-
     // Get destination accounts with sessions
     const accounts = readAccounts();
     const destinationAccounts = accounts.filter(acc => 
@@ -769,13 +765,57 @@ async function runTask(task) {
     );
 
     if (destinationAccounts.length === 0) {
-      addLog(`No valid destination accounts found for task: ${task.name}`, 'error');
+      addLog(`❌ No valid destination accounts found for task: ${task.name}`, 'error');
       return;
     }
 
-    // Post each piece of content to each destination account
-    for (const contentItem of content) {
-      addLog(`Processing ${contentItem.type}: ${contentItem.id}`, 'info');
+    let totalNewContent = 0;
+    let allNewContent = [];
+
+    // Check each source account for new content
+    for (const sourceAccount of sourceAccounts) {
+      try {
+        addLog(`🔍 Checking @${sourceAccount} for new content...`, 'info');
+        
+        // Get last processed post ID for this specific source account
+        const lastPostId = task.lastPostIds ? task.lastPostIds[sourceAccount] : null;
+        
+        // Scrape content from this source
+        const content = await scrapeInstagramPosts(sourceAccount, lastPostId, task.contentTypes);
+        
+        if (content.length > 0) {
+          addLog(`✅ Found ${content.length} new items from @${sourceAccount}`, 'success');
+          
+          // Add source account info to each content item
+          const contentWithSource = content.map(item => ({
+            ...item,
+            sourceAccount: sourceAccount
+          }));
+          
+          allNewContent.push(...contentWithSource);
+          totalNewContent += content.length;
+        } else {
+          addLog(`ℹ️ No new content from @${sourceAccount}`, 'info');
+        }
+        
+        // Small delay between source account checks
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+      } catch (error) {
+        addLog(`❌ Error checking @${sourceAccount}: ${error.message}`, 'error');
+      }
+    }
+
+    if (totalNewContent === 0) {
+      addLog(`ℹ️ No new content found across all ${sourceAccounts.length} source accounts`, 'info');
+      return;
+    }
+
+    addLog(`🎯 Processing ${totalNewContent} new items for posting...`, 'info');
+
+    // Post all new content to each destination account
+    for (const contentItem of allNewContent) {
+      addLog(`📤 Processing ${contentItem.type} from @${contentItem.sourceAccount}: ${contentItem.id}`, 'info');
       
       for (const account of destinationAccounts) {
         try {
@@ -787,39 +827,53 @@ async function runTask(task) {
           );
           
           if (!shouldPost) {
-            addLog(`Skipping ${contentItem.type} for task ${task.name} (content type disabled)`, 'info');
+            addLog(`⏭️ Skipping ${contentItem.type} (content type disabled)`, 'info');
             continue;
           }
           
-          await postToInstagram(account, contentItem);
-          addLog(`Posted ${contentItem.type} to @${account.username}`, 'success');
+          // Add source credit to caption
+          const enhancedContent = {
+            ...contentItem,
+            caption: `${contentItem.caption}\n\n📸 Source: @${contentItem.sourceAccount} | Auto-posted via Instagram Auto Poster`
+          };
+          
+          await postToInstagram(account, enhancedContent);
+          addLog(`✅ Posted ${contentItem.type} from @${contentItem.sourceAccount} to @${account.username}`, 'success');
           
           // Add delay between posts to avoid rate limiting
-          await new Promise(resolve => setTimeout(resolve, 5000));
+          await new Promise(resolve => setTimeout(resolve, 8000));
           
         } catch (error) {
-          addLog(`Failed to post ${contentItem.type} to @${account.username}: ${error.message}`, 'error');
+          addLog(`❌ Failed to post ${contentItem.type} to @${account.username}: ${error.message}`, 'error');
         }
       }
       
       // Add delay between different content items
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      await new Promise(resolve => setTimeout(resolve, 5000));
     }
 
-    // Update task with last processed content ID
+    // Update task with last processed content IDs for each source
     const tasks = readTasks();
     const taskIndex = tasks.findIndex(t => t.id === task.id);
     if (taskIndex >= 0) {
-      tasks[taskIndex].lastPostId = content[0].id;
+      if (!tasks[taskIndex].lastPostIds) {
+        tasks[taskIndex].lastPostIds = {};
+      }
+      
+      // Update last post ID for each source account
+      for (const contentItem of allNewContent) {
+        tasks[taskIndex].lastPostIds[contentItem.sourceAccount] = contentItem.id;
+      }
+      
       tasks[taskIndex].lastRun = new Date().toISOString();
-      tasks[taskIndex].lastProcessedCount = content.length;
+      tasks[taskIndex].lastProcessedCount = totalNewContent;
       writeTasks(tasks);
     }
 
-    addLog(`Task "${task.name}" completed successfully. Processed ${content.length} items.`, 'success');
+    addLog(`🎉 Task "${task.name}" completed! Processed ${totalNewContent} items from ${sourceAccounts.length} sources.`, 'success');
 
   } catch (error) {
-    addLog(`Task execution failed for "${task.name}": ${error.message}`, 'error');
+    addLog(`❌ Task execution failed for "${task.name}": ${error.message}`, 'error');
   }
 }
 
